@@ -4,25 +4,13 @@
 #
 Name     : R-usethis
 Version  : 1.4.0
-Release  : 4
+Release  : 5
 URL      : https://cran.r-project.org/src/contrib/usethis_1.4.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/usethis_1.4.0.tar.gz
 Summary  : Automate Package and Project Setup
 Group    : Development/Tools
 License  : Apache-2.0 CC0-1.0 GPL-3.0 MIT
-Requires: R-clipr
-Requires: R-clisymbols
-Requires: R-curl
-Requires: R-desc
-Requires: R-fs
-Requires: R-gh
-Requires: R-git2r
-Requires: R-magick
-Requires: R-rlang
-Requires: R-rprojroot
-Requires: R-rstudioapi
-Requires: R-styler
-Requires: R-whisker
+Requires: R-spelling
 BuildRequires : R-clipr
 BuildRequires : R-clisymbols
 BuildRequires : R-curl
@@ -34,14 +22,33 @@ BuildRequires : R-magick
 BuildRequires : R-rlang
 BuildRequires : R-rprojroot
 BuildRequires : R-rstudioapi
+BuildRequires : R-spelling
 BuildRequires : R-styler
 BuildRequires : R-whisker
 BuildRequires : buildreq-R
 
 %description
-performed manually. This includes setting up unit testing, test 
-    coverage, continuous integration, Git, 'GitHub', licenses, 'Rcpp', 'RStudio' 
-    projects, and more.
+#'
+#' \itemize{
+#' \item a high-level description of the package and its goals
+#' \item R code to install from GitHub, if GitHub usage detected
+#' \item a basic example
+#' }
+#' Use `Rmd` if you want a rich intermingling of code and data. Use
+#' YAML frontmatter and R fenced code blocks (`md`) or chunks (`Rmd`).
+#'
+#' @inheritParams use_template
+#' @seealso The [important files
+#'   section](http://r-pkgs.had.co.nz/release.html#important-files) of [R
+#'   Packages](http://r-pkgs.had.co.nz).
+#' @export
+#' @examples
+#' \dontrun{
+#' use_readme_rmd()
+#' use_readme_md()
+#' }
+use_readme_rmd <- function(open = interactive()) {
+check_installed("rmarkdown")
 
 %prep
 %setup -q -c -n usethis
@@ -51,10 +58,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1540749133
+export SOURCE_DATE_EPOCH=1552841239
 
 %install
-export SOURCE_DATE_EPOCH=1540749133
+export SOURCE_DATE_EPOCH=1552841239
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -90,8 +97,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library usethis|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  usethis || :
 
 
 %files
@@ -147,3 +153,55 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/usethis/templates/tidy-support.md
 /usr/lib64/R/library/usethis/templates/tidy-travis.yml
 /usr/lib64/R/library/usethis/templates/travis.yml
+/usr/lib64/R/library/usethis/tests/spelling.R
+/usr/lib64/R/library/usethis/tests/testthat.R
+/usr/lib64/R/library/usethis/tests/testthat/helper.R
+/usr/lib64/R/library/usethis/tests/testthat/ref/README.Rmd
+/usr/lib64/R/library/usethis/tests/testthat/ref/README.md
+/usr/lib64/R/library/usethis/tests/testthat/ref/foo-loose-dropbox.zip
+/usr/lib64/R/library/usethis/tests/testthat/ref/foo-loose-regular.zip
+/usr/lib64/R/library/usethis/tests/testthat/ref/foo-not-loose.zip
+/usr/lib64/R/library/usethis/tests/testthat/ref/foo/file.txt
+/usr/lib64/R/library/usethis/tests/testthat/ref/yo-loose-dropbox.zip
+/usr/lib64/R/library/usethis/tests/testthat/ref/yo-loose-regular.zip
+/usr/lib64/R/library/usethis/tests/testthat/ref/yo-not-loose.zip
+/usr/lib64/R/library/usethis/tests/testthat/ref/yo/subdir1/file1.txt
+/usr/lib64/R/library/usethis/tests/testthat/ref/yo/subdir2/file2.txt
+/usr/lib64/R/library/usethis/tests/testthat/setup.R
+/usr/lib64/R/library/usethis/tests/testthat/teardown.R
+/usr/lib64/R/library/usethis/tests/testthat/test-browse.R
+/usr/lib64/R/library/usethis/tests/testthat/test-create.R
+/usr/lib64/R/library/usethis/tests/testthat/test-edit.R
+/usr/lib64/R/library/usethis/tests/testthat/test-helpers.R
+/usr/lib64/R/library/usethis/tests/testthat/test-proj.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-badge.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-build-ignore.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-code-of-conduct.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-course.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-cran-comments.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-data.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-dependency.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-description.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-git.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-license.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-logo.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-package-doc.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-package.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-pipe.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-pkgdown.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-r.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-rcpp.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-readme.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-revdep.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-rmarkdown.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-roxygen.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-rstudio.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-template.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-testthat.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-tibble.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-tidy-style.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-tidy.R
+/usr/lib64/R/library/usethis/tests/testthat/test-use-version.R
+/usr/lib64/R/library/usethis/tests/testthat/test-utils.R
+/usr/lib64/R/library/usethis/tests/testthat/test-vignette.R
+/usr/lib64/R/library/usethis/tests/testthat/test-write.R
