@@ -1,4 +1,6 @@
 1.4.0
+R-Rcpp
+R-assertthat
 R-clipr
 R-clisymbols
 R-curl
@@ -6,6 +8,7 @@ R-desc
 R-fs
 R-gh
 R-git2r
+R-glue
 R-magick
 R-rlang
 R-rprojroot
