@@ -4,15 +4,12 @@
 #
 Name     : R-usethis
 Version  : 1.4.0
-Release  : 7
+Release  : 8
 URL      : https://cran.r-project.org/src/contrib/usethis_1.4.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/usethis_1.4.0.tar.gz
 Summary  : Automate Package and Project Setup
 Group    : Development/Tools
 License  : Apache-2.0 CC0-1.0 GPL-3.0 MIT
-Requires: R-Rcpp
-Requires: R-assertthat
-Requires: R-glue
 BuildRequires : R-Rcpp
 BuildRequires : R-assertthat
 BuildRequires : R-clipr
@@ -63,10 +60,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552866094
+export SOURCE_DATE_EPOCH=1552923365
 
 %install
-export SOURCE_DATE_EPOCH=1552866094
+export SOURCE_DATE_EPOCH=1552923365
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
