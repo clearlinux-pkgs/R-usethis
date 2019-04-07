@@ -1,4 +1,4 @@
-1.4.0
+1.5.0
 R-Rcpp
 R-assertthat
 R-clipr
@@ -10,9 +10,11 @@ R-gh
 R-git2r
 R-glue
 R-magick
+R-purrr
 R-rlang
 R-rprojroot
 R-rstudioapi
 R-spelling
 R-styler
 R-whisker
+R-yaml
