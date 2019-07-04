@@ -4,14 +4,15 @@
 #
 Name     : R-usethis
 Version  : 1.5.0
-Release  : 11
+Release  : 12
 URL      : https://cran.r-project.org/src/contrib/usethis_1.5.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/usethis_1.5.0.tar.gz
 Summary  : Automate Package and Project Setup
 Group    : Development/Tools
-License  : Apache-2.0 CC0-1.0 GPL-3.0 MIT
+License  : Apache-2.0 CC-BY-4.0 CC0-1.0 GPL-3.0 LGPL-2.1 MIT
 Requires: R-clipr
 Requires: R-clisymbols
+Requires: R-crayon
 Requires: R-curl
 Requires: R-desc
 Requires: R-fs
@@ -20,14 +21,17 @@ Requires: R-git2r
 Requires: R-glue
 Requires: R-magick
 Requires: R-purrr
+Requires: R-rlang
 Requires: R-rprojroot
 Requires: R-rstudioapi
 Requires: R-spelling
 Requires: R-styler
 Requires: R-whisker
+Requires: R-withr
 Requires: R-yaml
 BuildRequires : R-clipr
 BuildRequires : R-clisymbols
+BuildRequires : R-crayon
 BuildRequires : R-curl
 BuildRequires : R-desc
 BuildRequires : R-fs
@@ -36,36 +40,20 @@ BuildRequires : R-git2r
 BuildRequires : R-glue
 BuildRequires : R-magick
 BuildRequires : R-purrr
+BuildRequires : R-rlang
 BuildRequires : R-rprojroot
 BuildRequires : R-rstudioapi
 BuildRequires : R-spelling
 BuildRequires : R-styler
 BuildRequires : R-whisker
+BuildRequires : R-withr
 BuildRequires : R-yaml
 BuildRequires : buildreq-R
 
 %description
-#'
-#' \itemize{
-#' \item a high-level description of the package and its goals
-#' \item R code to install from GitHub, if GitHub usage detected
-#' \item a basic example
-#' }
-#' Use `Rmd` if you want a rich intermingling of code and data. Use
-#' YAML frontmatter and R fenced code blocks (`md`) or chunks (`Rmd`).
-#'
-#' @inheritParams use_template
-#' @seealso The [important files
-#'   section](http://r-pkgs.had.co.nz/release.html#important-files) of [R
-#'   Packages](http://r-pkgs.had.co.nz).
-#' @export
-#' @examples
-#' \dontrun{
-#' use_readme_rmd()
-#' use_readme_md()
-#' }
-use_readme_rmd <- function(open = interactive()) {
-check_installed("rmarkdown")
+performed manually. This includes setting up unit testing, test 
+    coverage, continuous integration, Git, 'GitHub', licenses, 'Rcpp', 'RStudio' 
+    projects, and more.
 
 %prep
 %setup -q -c -n usethis
@@ -74,13 +62,13 @@ check_installed("rmarkdown")
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1554650819
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562215255
 
 %install
-export SOURCE_DATE_EPOCH=1554650819
+export SOURCE_DATE_EPOCH=1562215255
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -109,7 +97,7 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
