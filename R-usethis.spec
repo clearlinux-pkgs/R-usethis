@@ -4,7 +4,7 @@
 #
 Name     : R-usethis
 Version  : 1.5.1
-Release  : 13
+Release  : 14
 URL      : https://cran.r-project.org/src/contrib/usethis_1.5.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/usethis_1.5.1.tar.gz
 Summary  : Automate Package and Project Setup
