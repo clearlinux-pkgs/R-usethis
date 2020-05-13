@@ -4,29 +4,26 @@
 #
 Name     : R-usethis
 Version  : 1.6.1
-Release  : 19
+Release  : 20
 URL      : https://cran.r-project.org/src/contrib/usethis_1.6.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/usethis_1.6.1.tar.gz
 Summary  : Automate Package and Project Setup
 Group    : Development/Tools
-License  : Apache-2.0 CC-BY-4.0 CC0-1.0 GPL-3.0 LGPL-2.1 MIT
+License  : AGPL-3.0 Apache-2.0 CC-BY-4.0 CC0-1.0 GPL-3.0 LGPL-2.1 MIT
 Requires: R-cli
 Requires: R-clipr
 Requires: R-crayon
 Requires: R-curl
 Requires: R-desc
-Requires: R-devtools
 Requires: R-fs
 Requires: R-gh
 Requires: R-git2r
 Requires: R-glue
-Requires: R-magick
 Requires: R-purrr
 Requires: R-rematch2
 Requires: R-rlang
 Requires: R-rprojroot
 Requires: R-rstudioapi
-Requires: R-styler
 Requires: R-whisker
 Requires: R-withr
 Requires: R-yaml
@@ -35,63 +32,43 @@ BuildRequires : R-clipr
 BuildRequires : R-crayon
 BuildRequires : R-curl
 BuildRequires : R-desc
-BuildRequires : R-devtools
 BuildRequires : R-fs
 BuildRequires : R-gh
 BuildRequires : R-git2r
 BuildRequires : R-glue
-BuildRequires : R-magick
 BuildRequires : R-purrr
 BuildRequires : R-rematch2
 BuildRequires : R-rlang
 BuildRequires : R-rprojroot
 BuildRequires : R-rstudioapi
-BuildRequires : R-styler
 BuildRequires : R-whisker
 BuildRequires : R-withr
 BuildRequires : R-yaml
 BuildRequires : buildreq-R
 
 %description
-#'
-#' \itemize{
-#' \item a high-level description of the package and its goals
-#' \item R code to install from GitHub, if GitHub usage detected
-#' \item a basic example
-#' }
-#' Use `Rmd` if you want a rich intermingling of code and data. Use
-#' YAML frontmatter and R fenced code blocks (`md`) or chunks (`Rmd`).
-#'
-#' @inheritParams use_template
-#' @seealso The [important files
-#'   section](https://r-pkgs.org/release.html#important-files) of [R
-#'   Packages](https://r-pkgs.org).
-#' @export
-#' @examples
-#' \dontrun{
-#' use_readme_rmd()
-#' use_readme_md()
-#' }
-use_readme_rmd <- function(open = rlang::is_interactive()) {
-check_installed("rmarkdown")
+performed manually. This includes setting up unit testing, test 
+    coverage, continuous integration, Git, 'GitHub', licenses, 'Rcpp', 'RStudio' 
+    projects, and more.
 
 %prep
 %setup -q -c -n usethis
+cd %{_builddir}/usethis
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1588191056
+export SOURCE_DATE_EPOCH=1589403852
 
 %install
-export SOURCE_DATE_EPOCH=1588191056
+export SOURCE_DATE_EPOCH=1589403852
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
