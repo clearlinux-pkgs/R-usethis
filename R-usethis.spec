@@ -4,7 +4,7 @@
 #
 Name     : R-usethis
 Version  : 1.6.3
-Release  : 23
+Release  : 24
 URL      : https://cran.r-project.org/src/contrib/usethis_1.6.3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/usethis_1.6.3.tar.gz
 Summary  : Automate Package and Project Setup
