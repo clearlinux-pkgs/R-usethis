@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-usethis
-Version  : 2.2.0
-Release  : 51
-URL      : https://cran.r-project.org/src/contrib/usethis_2.2.0.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/usethis_2.2.0.tar.gz
+Version  : 2.2.1
+Release  : 52
+URL      : https://cran.r-project.org/src/contrib/usethis_2.2.1.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/usethis_2.2.1.tar.gz
 Summary  : Automate Package and Project Setup
 Group    : Development/Tools
 License  : AGPL-3.0 Apache-2.0 CC-BY-4.0 CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0 MIT
@@ -79,10 +79,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1686066542
+export SOURCE_DATE_EPOCH=1687800408
 
 %install
-export SOURCE_DATE_EPOCH=1686066542
+export SOURCE_DATE_EPOCH=1687800408
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/R-usethis
 cp %{_builddir}/usethis/inst/templates/license-AGPL-3.md %{buildroot}/usr/share/package-licenses/R-usethis/b26b8cc945129faa495d7e07e698ecc78e3a5907 || :
@@ -235,6 +235,7 @@ R CMD check --no-manual --no-examples --no-codoc . || :
 /usr/lib64/R/library/usethis/tests/testthat/_snaps/news.md
 /usr/lib64/R/library/usethis/tests/testthat/_snaps/package.md
 /usr/lib64/R/library/usethis/tests/testthat/_snaps/pipe.md
+/usr/lib64/R/library/usethis/tests/testthat/_snaps/pkgdown.md
 /usr/lib64/R/library/usethis/tests/testthat/_snaps/proj-desc.md
 /usr/lib64/R/library/usethis/tests/testthat/_snaps/proj.md
 /usr/lib64/R/library/usethis/tests/testthat/_snaps/r.md
@@ -253,6 +254,7 @@ R CMD check --no-manual --no-examples --no-codoc . || :
 /usr/lib64/R/library/usethis/tests/testthat/_snaps/utils-github.md
 /usr/lib64/R/library/usethis/tests/testthat/_snaps/version.md
 /usr/lib64/R/library/usethis/tests/testthat/_snaps/vignette.md
+/usr/lib64/R/library/usethis/tests/testthat/_snaps/write.md
 /usr/lib64/R/library/usethis/tests/testthat/helper-mocks.R
 /usr/lib64/R/library/usethis/tests/testthat/helper.R
 /usr/lib64/R/library/usethis/tests/testthat/ref/README.Rmd
