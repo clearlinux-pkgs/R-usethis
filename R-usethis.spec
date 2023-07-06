@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-usethis
-Version  : 2.2.1
-Release  : 52
-URL      : https://cran.r-project.org/src/contrib/usethis_2.2.1.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/usethis_2.2.1.tar.gz
+Version  : 2.2.2
+Release  : 53
+URL      : https://cran.r-project.org/src/contrib/usethis_2.2.2.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/usethis_2.2.2.tar.gz
 Summary  : Automate Package and Project Setup
 Group    : Development/Tools
 License  : AGPL-3.0 Apache-2.0 CC-BY-4.0 CC0-1.0 GPL-2.0 GPL-3.0 LGPL-2.1 LGPL-3.0 MIT
@@ -79,10 +79,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1687800408
+export SOURCE_DATE_EPOCH=1688666514
 
 %install
-export SOURCE_DATE_EPOCH=1687800408
+export SOURCE_DATE_EPOCH=1688666514
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/R-usethis
 cp %{_builddir}/usethis/inst/templates/license-AGPL-3.md %{buildroot}/usr/share/package-licenses/R-usethis/b26b8cc945129faa495d7e07e698ecc78e3a5907 || :
