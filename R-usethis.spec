@@ -7,7 +7,7 @@
 #
 Name     : R-usethis
 Version  : 3.0.0
-Release  : 57
+Release  : 58
 URL      : https://cran.r-project.org/src/contrib/usethis_3.0.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/usethis_3.0.0.tar.gz
 Summary  : Automate Package and Project Setup
